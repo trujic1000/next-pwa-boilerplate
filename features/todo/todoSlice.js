@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-let initialState = {
-	todos: []
-};
+let initialState = [];
 
 const createRandomId = () =>
 	Math.random()
@@ -13,22 +11,29 @@ const todo = createSlice({
 	name: "todo",
 	initialState,
 	reducers: {
-		addTodo: (state, action) => {
-			const todo = {
-				id: createRandomId(),
-				text: action.payload.text,
-				completed: false
-			};
-			state.todos.push(todo);
+		addTodo: {
+			reducer(state, action) {
+				const { id, text } = action.payload;
+				state.push({ id, text, completed: false });
+			},
+			prepare({ text }) {
+				return {
+					payload: {
+						id: createRandomId(),
+						text
+					}
+				};
+			}
 		},
 		updateTodo: (state, action) => {
-			const todoIndex = state.todos.findIndex(
-				({ id }) => id === action.payload.id
-			);
-			state.todos[todoIndex].completed = !state.todos[todoIndex].completed;
+			const todo = state.find(todo => todo.id === action.payload.id);
+			if (todo) {
+				todo.completed = !todo.completed;
+			}
 		},
 		deleteTodo: (state, action) => {
-			state.todos = state.todos.filter(todo => todo.id !== action.payload.id);
+			const todoIndex = state.findIndex(todo => todo.id === action.payload.id);
+			state.splice(todoIndex, 1);
 		}
 	}
 });

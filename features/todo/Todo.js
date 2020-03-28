@@ -42,7 +42,7 @@ const TodoItem = styled.li`
 	}
 `;
 
-const DeleteIcon = ({ color }) => (
+const DeleteIcon = () => (
 	<svg
 		fill="#fff"
 		strokeWidth="2"

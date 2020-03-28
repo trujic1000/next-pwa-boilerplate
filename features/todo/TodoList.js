@@ -43,7 +43,7 @@ const Form = styled.form`
 
 const TodoList = () => {
 	const [text, setText] = useState("");
-	const todos = useSelector(state => state.todo.todos);
+	const todos = useSelector(state => state.todos);
 	const dispatch = useDispatch();
 
 	const onClick = e => {
