@@ -1,0 +1,47 @@
+{
+	"name": "next-pwa-boilerplate",
+	"description": "next.js pwa boilerplate with Redux - Redux Toolkit and Styled Components",
+	"private": true,
+	"version": "1.0.0",
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"dependencies": {
+		"@reduxjs/toolkit": "^1.3.0",
+		"isomorphic-unfetch": "^3.0.0",
+		"next": "^9.2.1",
+		"next-compose-plugins": "^2.2.0",
+		"next-images": "^1.3.1",
+		"next-offline": "^5.0.0",
+		"next-redux-wrapper": "^5.0.0",
+		"prop-types": "^15.7.2",
+		"react": "^16.12.0",
+		"react-axe": "^3.4.1",
+		"react-dom": "^16.12.0",
+		"react-redux": "^7.2.0",
+		"styled-components": "^5.0.1",
+		"styled-reset": "^4.1.2"
+	},
+	"scripts": {
+		"dev": "next",
+		"start": "next start",
+		"lint": "eslint components",
+		"build": "next build",
+		"build:server": "NEXT_TARGET=server next build",
+		"export:server": "NEXT_TARGET=server next export",
+		"export": "npm run build:server && npm run export:server",
+		"start:static": "serve",
+		"now-build": "next build"
+	},
+	"devDependencies": {
+		"babel-eslint": "^10.0.3",
+		"eslint": "^6.2.0",
+		"eslint-config-react-app": "^5.0.1",
+		"eslint-plugin-flowtype": "^2.50.3",
+		"eslint-plugin-import": "^2.18.2",
+		"eslint-plugin-jsx-a11y": "^6.2.3",
+		"eslint-plugin-react": "^7.14.3",
+		"eslint-plugin-react-hooks": "^2.4.0",
+		"serve": "^11.1.0"
+	}
+}
